@@ -6,3 +6,6 @@ publish = "dist"
 pattern = "/api/news*"
 script = "news"
 mime_type = "application/json"
+
+[vars]
+API_KEY = "<9ca41b3aaee0400dbb6434869dff69d4>"
