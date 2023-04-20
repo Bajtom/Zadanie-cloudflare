@@ -1,0 +1,8 @@
+[build]
+command = "npm run build"
+publish = "dist"
+
+[[routes]]
+pattern = "/api/news*"
+script = "news"
+mime_type = "application/json"
