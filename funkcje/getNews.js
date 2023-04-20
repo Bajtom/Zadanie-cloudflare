@@ -1,6 +1,6 @@
-async function handleRequest(request) {
-  const url = `https://newsapi.org/v2/top-headlines?country=us&page=${request.cf ? request.cf.colo : 1}&pageSize=10`;
-  const apiKey = Deno.env.get("NEWS_API_KEY");
+async function getNews(page, pageSize) {
+  const url = `https://newsapi.org/v2/top-headlines?country=us&page=${page}&pageSize=${pageSize}`;
+  const apiKey = "<9ca41b3aaee0400dbb6434869dff69d4>";
 
   const response = await fetch(url, {
     headers: {
@@ -16,13 +16,9 @@ async function handleRequest(request) {
     url: article.url
   }));
 
-  return new Response(JSON.stringify(news), {
-    headers: {
-      "content-type": "application/json;charset=UTF-8"
-    }
-  });
+  return news;
 }
 
-addEventListener("fetch", (event) => {
-  event.respondWith(handleRequest(event.request));
-});
+// przykładowe użycie
+const news = await getNews(1, 10);
+console.log(news);
