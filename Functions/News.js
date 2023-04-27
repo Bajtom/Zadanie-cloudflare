@@ -1,4 +1,4 @@
-async function getNews(page, pageSize) {
+export async function onRequestGet(page, pageSize) {
   const url = `https://newsapi.org/v2/top-headlines?country=us&page=${page}&pageSize=${pageSize}`;
   const apiKey = CLOUDFLARE_ENV.API_KEY; // pobieramy klucz API z zmiennych środowiskowych
 
